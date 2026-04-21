@@ -13,7 +13,7 @@ const COURSE_DATA = {
     desc: 'SUM، AVERAGE، COUNT وكيفية توظيفها في الحياة العملية.',
     story: 'سنتعلم أهم الدوال الأساسية التي لا غنى عنها في أي بيئة عمل.',
     objectives: ['تطبيق دوال الجمع', 'استخدام دوال العد', 'تجنب الأخطاء الشائعة'],
-    videoEmbed: '', // فارغ يعني أن المحاضرة "قريباً" ولن تفتح في لوحة التحكم
+    videoEmbed: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQTOXKz1VCHLSL2qSUHlWdtSAZExT-jShsRrZz-KsoGIlcw?width=1280&height=720', // فارغ يعني أن المحاضرة "قريباً" ولن تفتح في لوحة التحكم
     fileEmbed: ''
   },
   3: {
