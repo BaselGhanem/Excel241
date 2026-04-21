@@ -279,7 +279,7 @@ function renderCards(filter = 'all') {
           <div class="cp-label"><span>${isCompleted ? 'مكتملة' : (isLocked ? 'مقفلة' : (!lec.hasContent ? 'قريباً' : 'متاحة'))}</span><span>${isCompleted ? '100%' : '0%'}</span></div>
         </div>
       </div>
-      <div class="card-footer">${btn}<span class="duration-tag">⏱ ~45 دقيقة</span></div>`;
+      <div class="card-footer">${btn}<span class="duration-tag">⏱ ~120 دقيقة</span></div>`;
 
     if (!isLocked && lec.hasContent) {
       card.addEventListener('click', e => { if(e.target.tagName !== 'BUTTON') location.href = `lecture${lec.id}.html`; });
