@@ -16,8 +16,13 @@ const COURSE_DATA = {
     desc: 'SUM، AVERAGE، COUNT وكيفية توظيفها في الحياة العملية.',
     story: 'في هذه المحاضرة سننتقل من مجرد إدخال البيانات إلى جعل Excel يحسب نيابة عنك. سنتعلم أهم الدوال الأساسية التي لا غنى عنها في أي بيئة عمل.',
     objectives: ['فهم الهيكل الصحيح لكتابة الصيغ', 'تطبيق دوال الجمع والمتوسط (SUM, AVERAGE)', 'استخدام دوال العد (COUNT) وتجنب الأخطاء'],
-    videoUrl: '', 
-    files: []
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQB4-XD-9DlAT5NS_MleLUCVAdXRIrMhQ3t3-vcrm8cV6Z4?e=p3iqKG', 
+    files: [
+      { name: 'Taps Part 2', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCXteAQFYtZSp8adjzNOA8UARV4JNgWt-mcmfSqmtcesm8?e=rZr4w8', type: 'Excel Workbook' },
+      { name: 'كل معادلات الاكسل شرح بالعربي', url: 'https://1drv.ms/b/c/a1a27fad04d192e9/IQAjEFtIAbcwQKfQsQTUI3KDAZy4DqJ5ZRPm3wCS7H8gNl4?e=5Zl2Zo', type: 'PDF Document' }
+
+      
+    ]
   },
   3: {
     title: 'تنظيم وتنسيق البيانات',
