@@ -195,19 +195,127 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 
 <script>
 // ── DATA ──
+<script src="data.js"></script>
+
+<script>
+// ── DATA ──
 const lectures = [
-  { id:1, title:'مقدمة في Excel', desc:'التعرف على الواجهة، الأدوات الأساسية، وأهمية Excel في عالم الأعمال.', icon:'📊', hasContent:true },
-  { id:2, title:'الصيغ والدوال الأساسية', desc:'SUM، AVERAGE، COUNT وكيفية توظيفها في الحياة العملية.', icon:'🧮', hasContent:false },
-  { id:3, title:'تنظيم وتنسيق البيانات', desc:'جداول منظمة واحترافية تعكس مهارتك في إدارة البيانات.', icon:'📋', hasContent:false },
-  { id:4, title:'الدوال المتقدمة', desc:'VLOOKUP، IF، INDEX-MATCH — أدوات المحترفين.', icon:'⚡', hasContent:false },
-  { id:5, title:'تحليل البيانات', desc:'فرز، تصفية، وتلخيص البيانات بطرق احترافية.', icon:'🔍', hasContent:false },
-  { id:6, title:'Pivot Tables', desc:'الجداول المحورية — سلاح المحلل الرقمي الأقوى.', icon:'🔄', hasContent:false },
-  { id:7, title:'الرسوم البيانية والتصور', desc:'تحويل الأرقام إلى قصص بصرية مؤثرة.', icon:'📈', hasContent:false },
-  { id:8, title:'الماكرو والأتمتة', desc:'أتمتة المهام المتكررة ووفّر ساعات من عملك.', icon:'🤖', hasContent:false },
-  { id:9, title:'Power Query', desc:'استيراد وتحويل البيانات بقوة لا تصدق.', icon:'⚙️', hasContent:false },
-  { id:10, title:'مشروع نهائي متكامل', desc:'تطبيق شامل على كل ما تعلمته — لوحة تحكم احترافية.', icon:'🏆', hasContent:false },
+  { id:1, icon:'📊' }, { id:2, icon:'🧮' }, { id:3, icon:'📋' },
+  { id:4, icon:'⚡' }, { id:5, icon:'🔍' }, { id:6, icon:'🔄' },
+  { id:7, icon:'📈' }, { id:8, icon:'🤖' }, { id:9, icon:'⚙️' }, { id:10, icon:'🏆' }
 ];
 
+// دمج البيانات المركزية مع المصفوفة السابقة
+lectures.forEach(lec => {
+  const data = COURSE_DATA[lec.id];
+  if(data) {
+    lec.title = data.title;
+    lec.desc = data.desc;
+    // إذا كان هناك فيديو، المحاضرة متاحة (true)، وإلا (false)
+    lec.hasContent = data.videoEmbed !== ''; 
+  }
+});
+
+// ── AUTH CHECK ──
+const user = localStorage.getItem('excelPro_user');
+const role = localStorage.getItem('excelPro_role');
+if (!user) { location.href = 'login.html'; }
+
+// ── PROGRESS ──
+function getProgress() {
+  const raw = localStorage.getItem('excelPro_progress');
+  if (raw) return JSON.parse(raw);
+  return { completed: [], locked: role === 'admin' ? [] : [2,3,4,5,6,7,8,9,10] };
+}
+function saveProgress(p) { localStorage.setItem('excelPro_progress', JSON.stringify(p)); }
+
+// ── UI SETUP ──
+document.getElementById('userName').textContent = user;
+document.getElementById('greetName').textContent = user;
+document.getElementById('avatarInitial').textContent = user.charAt(0).toUpperCase();
+if (role === 'admin') document.getElementById('adminBadge').style.display = 'inline-flex';
+
+// ── RENDER CARDS ──
+function renderCards(filter = 'all') {
+  const progress = getProgress();
+  const grid = document.getElementById('cardsGrid');
+  grid.innerHTML = '';
+  let completed = 0, available = 0;
+
+  lectures.forEach(lec => {
+    const isCompleted = progress.completed.includes(lec.id);
+    const isLocked = role !== 'admin' && progress.locked.includes(lec.id);
+    let state = isLocked ? 'locked' : (isCompleted ? 'completed' : 'available');
+
+    if (filter !== 'all' && filter !== state) return;
+    if (isCompleted) completed++;
+    if (!isLocked && !isCompleted) available++;
+
+    const card = document.createElement('div');
+    card.className = `lecture-card ${state}`;
+    
+    let badge = '', icon = '', btn = '';
+    if (isCompleted) {
+      badge = `<span class="card-status-badge badge-completed">✓ مكتملة</span>`;
+      icon = `<span class="card-status-icon">✅</span>`;
+      btn = `<button class="go-btn" onclick="location.href='lecture${lec.id}.html'">مراجعة ←</button>`;
+    } else if (isLocked) {
+      badge = `<span class="card-status-badge badge-locked">🔒 مقفلة</span>`;
+      icon = `<div class="locked-overlay">🔒</div>`;
+      btn = `<button class="go-btn-ghost" disabled>أكمل السابقة أولاً</button>`;
+    } else if (!lec.hasContent) {
+      badge = `<span class="card-status-badge badge-soon">⏳ قريباً</span>`;
+      icon = `<span class="card-status-icon">⏳</span>`;
+      btn = `<button class="go-btn-ghost" disabled>قريباً</button>`;
+    } else {
+      badge = `<span class="card-status-badge badge-available">▶ متاحة</span>`;
+      icon = `<span class="card-status-icon">${lec.icon}</span>`;
+      btn = `<button class="go-btn" onclick="location.href='lecture${lec.id}.html'">ابدأ المحاضرة ←</button>`;
+    }
+
+    card.innerHTML = `
+      <div class="card-thumb"><div class="card-thumb-bg"></div><span class="card-num-big">${lec.id}</span>${icon}</div>
+      <div class="card-body">
+        <div class="card-meta"><div class="card-number">${lec.id}</div>${badge}</div>
+        <div class="card-title">${lec.title || 'محاضرة ' + lec.id}</div>
+        <div class="card-desc">${lec.desc || 'سيتم إضافة التفاصيل قريباً'}</div>
+        <div class="card-progress">
+          <div class="cp-bar"><div class="cp-fill" style="width:${isCompleted ? 100 : 0}%"></div></div>
+          <div class="cp-label"><span>الحالة</span><span>${isCompleted ? '100%' : '0%'}</span></div>
+        </div>
+      </div>
+      <div class="card-footer">${btn}<span class="duration-tag">⏱ ~45 دقيقة</span></div>`;
+
+    if (!isLocked && lec.hasContent) {
+      card.addEventListener('click', e => { if(e.target.tagName !== 'BUTTON') location.href = `lecture${lec.id}.html`; });
+    }
+    grid.appendChild(card);
+  });
+
+  const pct = Math.round((completed / 10) * 100);
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('completedCount').textContent = completed;
+  document.getElementById('availableCount').textContent = available;
+}
+
+renderCards();
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active'); renderCards(this.dataset.filter);
+  });
+});
+const themeToggle = document.getElementById('themeToggle');
+let dark = true;
+themeToggle.addEventListener('click', () => {
+  dark = !dark; document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  themeToggle.textContent = dark ? '🌙' : '☀️';
+});
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  if (confirm('هل تريد تسجيل الخروج؟')) { localStorage.clear(); location.href = 'login.html'; }
+});
+</script>
 // ── AUTH CHECK ──
 const user = localStorage.getItem('excelPro_user');
 const role = localStorage.getItem('excelPro_role');
