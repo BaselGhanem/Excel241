@@ -15,7 +15,7 @@ const COURSE_DATA = {
     desc: 'SUM، AVERAGE، COUNT وكيفية توظيفها في الحياة العملية.',
     story: 'في هذه المحاضرة سننتقل من مجرد إدخال البيانات إلى جعل Excel يحسب نيابة عنك. سنتعلم أهم الدوال الأساسية التي لا غنى عنها في أي بيئة عمل.',
     objectives: ['فهم الهيكل الصحيح لكتابة الصيغ', 'تطبيق دوال الجمع والمتوسط (SUM, AVERAGE)', 'استخدام دوال العد (COUNT) وتجنب الأخطاء'],
-    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQR4-XD-9DlAT5NS_MleLUCVAWu3s7mXAb2kUBrK3e4akCc?width=1920&height=1080', 
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQB4-XD-9DlAT5NS_MleLUCVAdXRIrMhQ3t3-vcrm8cV6Z4?e=p3iqKG', 
     files: [
       { name: 'Taps Part 2', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCXteAQFYtZSp8adjzNOA8UARV4JNgWt-mcmfSqmtcesm8?download=1', type: 'Excel Workbook' },
       { name: 'كل معادلات الاكسل شرح بالعربي', url: 'https://1drv.ms/b/c/a1a27fad04d192e9/IQAjEFtIAbcwQKfQsQTUI3KDAZy4DqJ5ZRPm3wCS7H8gNl4?download=1', type: 'PDF Document' }
@@ -75,18 +75,21 @@ const COURSE_DATA = {
     ]
   },
   7: {
-    title: 'Pivot Tables',
-    desc: 'الجداول المحورية — سلاح المحلل الرقمي الأقوى.',
-    story: 'إذا كان هناك مهارة واحدة ستوفر عليك مئات الساعات من العمل اليدوي، فهي الجداول المحورية. الأداة الأقوى لتلخيص ملايين السجلات في ثوانٍ.',
-    objectives: ['إنشاء الجداول المحورية من الصفر', 'تغيير طرق العرض وتلخيص البيانات', 'إضافة الحقول المحسوبة والشرائح (Slicers)'],
-    videoUrl: '', 
-    files: []
+    title: 'المصفوفات الديناميكية ودالة XLOOKUP الخارقة',
+    desc: 'رحلة دمج معادلات FILTER و SORT و UNIQUE للوصول للجيل الجديد من البحث بـ XLOOKUP.',
+    story: 'استعدوا للصدمة الإيجابية! في هذه المحاضرة سنعيش رحلة جنونية مع المصفوفات الديناميكية؛ سندمج دوال مثل FILTER و UNIQUE و SORT و VSTACK معاً لتشكيل خلطة سحرية تستخرج أي نتيجة مهما كانت معقدة. وبعدها، سنودع الطرق التقليدية ونستقبل الملك المتوج "XLOOKUP"، لنفصص كل جزء فيه ونكتشف الفروقات الجوهرية التي تجعله البديل الأقوى والأكثر مرونة مقارنة بـ VLOOKUP. هذه المحاضرة ستغير طريقة عملك للأبد!',
+    objectives: ['استخراج البيانات وتصفيتها باحترافية باستخدام دالة FILTER', 'دمج المصفوفات الديناميكية (UNIQUE, SORT, CHOOSECOLS, VSTACK) في معادلة واحدة جبارة', 'فهم الفروقات الجوهرية واحتراف جميع خصائص دالة XLOOKUP السحرية'],
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQS8aDI7l06gQJbUzXiJMZtVAUheJApM9YYE-5aRmK9vsoA?width=1920&height=1080', 
+    files: [
+      { name: 'Using Filter (رحلة المصفوفات)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQBWtYicqDGjTYk1E_eolA6jARzZZMMWm8rhlk9K5EXiaXc?download=1', type: 'Excel Workbook' },
+      { name: 'XLOOKUP (الملك المتوج)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQD7OYzI-MDeSqXK7O0kw6XzARcLMv007Jwg7pGJasq8M30?download=1', type: 'Excel Workbook' }
+    ]
   },
   8: {
-    title: 'الرسوم البيانية والتصور',
-    desc: 'تحويل الأرقام إلى قصص بصرية مؤثرة.',
-    story: 'الأرقام قد تكون مملة وصعبة الفهم، لكن الرسوم البيانية تجعلها تنطق! سنتعلم كيف نختار الرسم المناسب لعرض تقارير بصرية رائعة وسهلة الفهم.',
-    objectives: ['اختيار الرسم البياني المناسب للبيانات', 'تنسيق المخططات وتعديل عناصرها', 'إنشاء رسوم بيانية تفاعلية'],
+    title: 'الجداول المحورية (Pivot Tables) والرسوم البيانية',
+    desc: 'تحويل ملايين السجلات إلى قصص بصرية وتقارير تفاعلية.',
+    story: 'الآن وقت الإبهار! إذا كان هناك مهارة واحدة ستوفر عليك مئات الساعات من العمل اليدوي، فهي الجداول المحورية (Pivot Tables). سنتعلم كيف نلخص ملايين البيانات في ثوانٍ، ثم نحول هذه الأرقام الجامدة إلى رسوم بصرية (Charts) تنطق بالقصص والإنجازات أمام الإدارة.',
+    objectives: ['إنشاء الجداول المحورية من الصفر وإضافة الحقول المحسوبة والشرائح (Slicers)', 'اختيار الرسم البياني المناسب للبيانات لتوصيل الفكرة بوضوح', 'تنسيق المخططات وإنشاء تقارير بصرية تفاعلية'],
     videoUrl: '', 
     files: []
   },
