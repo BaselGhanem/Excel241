@@ -7,7 +7,7 @@ const COURSE_DATA = {
     objectives: ['التعرف على واجهة Excel وأدواته', 'فهم شريط الأدوات (Ribbons) ووظيفة كل أيقونة', 'التنقل بكفاءة داخل أوراق العمل'],
     videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQQPNsV0qfZ8Sr6eZQHbHsgwAZa32zBChYmvLDUSryy-l8s?width=1920&height=1080',
     files: [
-      { name: 'شرح القوائم والأدوات (Ribbons)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQB0qdk3vnJiQpZhWiPTbpEaAZo1yC2eLg_qCffdXALYGDk?download=1', type: 'Excel Workbook' }
+      { name: 'Taps Part 1', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQB0qdk3vnJiQpZhWiPTbpEaAZo1yC2eLg_qCffdXALYGDk?download=1', type: 'Excel Workbook' }  
     ]
   },
   2: {
@@ -15,7 +15,7 @@ const COURSE_DATA = {
     desc: 'SUM، AVERAGE، COUNT وكيفية توظيفها في الحياة العملية.',
     story: 'في هذه المحاضرة سننتقل من مجرد إدخال البيانات إلى جعل Excel يحسب نيابة عنك. سنتعلم أهم الدوال الأساسية التي لا غنى عنها في أي بيئة عمل.',
     objectives: ['فهم الهيكل الصحيح لكتابة الصيغ', 'تطبيق دوال الجمع والمتوسط (SUM, AVERAGE)', 'استخدام دوال العد (COUNT) وتجنب الأخطاء'],
-    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQR4-XD-9DlAT5NS_MleLUCVAWu3s7mXAb2kUBrK3e4akCc?width=1920&height=1080',
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQB4-XD-9DlAT5NS_MleLUCVAdXRIrMhQ3t3-vcrm8cV6Z4?e=p3iqKG', 
     files: [
       { name: 'Taps Part 2', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCXteAQFYtZSp8adjzNOA8UARV4JNgWt-mcmfSqmtcesm8?download=1', type: 'Excel Workbook' },
       { name: 'كل معادلات الاكسل شرح بالعربي', url: 'https://1drv.ms/b/c/a1a27fad04d192e9/IQAjEFtIAbcwQKfQsQTUI3KDAZy4DqJ5ZRPm3wCS7H8gNl4?download=1', type: 'PDF Document' }
@@ -50,12 +50,16 @@ const COURSE_DATA = {
     ]
   },
   5: {
-    title: 'تحليل البيانات',
-    desc: 'فرز، تصفية، وتلخيص البيانات بطرق احترافية.',
-    story: 'البيانات الكثيرة لا تفيد بدون تحليل. سنتعلم في هذه المحاضرة كيف نستخرج الخلاصة والإجابات الدقيقة من آلاف الصفوف بضغطة زر.',
-    objectives: ['تطبيق الفرز المتعدد والمتقدم', 'التصفية الدقيقة للبيانات المعقدة', 'استخدام أداة المجاميع الفرعية (Subtotals)'],
-    videoUrl: '', 
-    files: []
+    title: 'سيمفونية البحث والتحكم بالبيانات',
+    desc: 'تسهيل المعادلات بـ Name Manager، التحكم بالمدخلات بـ Data Validation، واحتراف دالة VLOOKUP الأسطورية.',
+    story: 'هل أنت مستعد لنقلة نوعية؟ في هذه المحاضرة الحماسية سنكتشف كيف نجعل حياتنا والمعادلات المعقدة أسهل بكثير باستخدام الـ Name Manager. سنتعلم أيضاً كيف نفرض سيطرتنا على مدخلات المستخدمين عبر Data Validation (ونضيف لمستنا الخاصة برسائل خطأ مضحكة!). ومسك الختام سيكون مع "سيمفونية البحث".. نعم، سنتعلم معاً أعظم دالة في الإكسل: VLOOKUP، لنجعل البيانات تبحث عن نفسها بنفسها!',
+    objectives: ['تسهيل قراءة وكتابة المعادلات المعقدة باستخدام Name Manager', 'تقييد إدخال البيانات وإنشاء رسائل خطأ مخصصة (ومرحة) عبر Data Validation', 'احتراف دالة VLOOKUP لربط البيانات والبحث عنها بلمح البصر'],
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQRyTqZGsYWpQ4BFaLNCB5sJARxjBruaQnd24lJXmBjV6Eg?width=1920&height=1080', 
+    files: [
+      { name: 'Name Manager', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQBWNL3hDXvDSo3ZWsv8N0xYAb5CXZOv9sLVSldBGIt0Dzw?download=1', type: 'Excel Workbook' },
+      { name: 'Data Validation', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQD8i3FCYg7zQaDiET4Y4f9dAS3-wY3ZfGRZutmbuReT8S4?download=1', type: 'Excel Workbook' },
+      { name: 'Data Lookup Symphony (VLOOKUP)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQANLuW7YOMDQLqBv-LgrwswARDyB4Kk8-AnhDWFyxn-tx0?download=1', type: 'Excel Workbook' }
+    ]
   },
   6: {
     title: 'Pivot Tables',
