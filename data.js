@@ -1,4 +1,4 @@
-// قاعدة بيانات الدورة (هنا تقوم بالتعديل وإضافة الروابط والملفات متى توفرت)
+// قاعدة بيانات الدورة
 const COURSE_DATA = {
   1: {
     title: 'مقدمة في Excel',
@@ -7,7 +7,8 @@ const COURSE_DATA = {
     objectives: ['التعرف على واجهة Excel وأدواته', 'فهم هيكل الخلايا، الصفوف، والأعمدة', 'التنقل بكفاءة داخل أوراق العمل'],
     videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQQPNsV0qfZ8Sr6eZQHbHsgwAZa32zBChYmvLDUSryy-l8s?width=1920&height=1080',
     files: [
-      { name: 'Taps Part 1', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQB0qdk3vnJiQpZhWiPTbpEaAZo1yC2eLg_qCffdXALYGDk?e=YQpZSC', type: 'Excel Workbook' },
+      // تم تغيير ?e=YQpZSC إلى ?download=1
+      { name: 'Taps Part 1', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQB0qdk3vnJiQpZhWiPTbpEaAZo1yC2eLg_qCffdXALYGDk?download=1', type: 'Excel Workbook' },
       { name: 'ملحق اختصارات لوحة المفاتيح', url: 'https://onedrive.live.com/...', type: 'PDF Document' }
     ]
   },
@@ -18,10 +19,10 @@ const COURSE_DATA = {
     objectives: ['فهم الهيكل الصحيح لكتابة الصيغ', 'تطبيق دوال الجمع والمتوسط (SUM, AVERAGE)', 'استخدام دوال العد (COUNT) وتجنب الأخطاء'],
     videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQB4-XD-9DlAT5NS_MleLUCVAdXRIrMhQ3t3-vcrm8cV6Z4?e=p3iqKG', 
     files: [
-      { name: 'Taps Part 2', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCXteAQFYtZSp8adjzNOA8UARV4JNgWt-mcmfSqmtcesm8?e=rZr4w8', type: 'Excel Workbook' },
-      { name: 'كل معادلات الاكسل شرح بالعربي', url: 'https://1drv.ms/b/c/a1a27fad04d192e9/IQAjEFtIAbcwQKfQsQTUI3KDAZy4DqJ5ZRPm3wCS7H8gNl4?e=5Zl2Zo', type: 'PDF Document' }
-
-      
+      // تم تغيير ?e=rZr4w8 إلى ?download=1
+      { name: 'Taps Part 2', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCXteAQFYtZSp8adjzNOA8UARV4JNgWt-mcmfSqmtcesm8?download=1', type: 'Excel Workbook' },
+      // تم تغيير ?e=5Zl2Zo إلى ?download=1
+      { name: 'كل معادلات الاكسل شرح بالعربي', url: 'https://1drv.ms/b/c/a1a27fad04d192e9/IQAjEFtIAbcwQKfQsQTUI3KDAZy4DqJ5ZRPm3wCS7H8gNl4?download=1', type: 'PDF Document' }
     ]
   },
   3: {
