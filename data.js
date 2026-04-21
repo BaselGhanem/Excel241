@@ -53,7 +53,7 @@ const COURSE_DATA = {
     title: 'سيمفونية البحث والتحكم بالبيانات',
     desc: 'تسهيل المعادلات بـ Name Manager، التحكم بالمدخلات بـ Data Validation، واحتراف دالة VLOOKUP الأسطورية.',
     story: 'هل أنت مستعد لنقلة نوعية؟ في هذه المحاضرة الحماسية سنكتشف كيف نجعل حياتنا والمعادلات المعقدة أسهل بكثير باستخدام الـ Name Manager. سنتعلم أيضاً كيف نفرض سيطرتنا على مدخلات المستخدمين عبر Data Validation (ونضيف لمستنا الخاصة برسائل خطأ مضحكة!). ومسك الختام سيكون مع "سيمفونية البحث".. نعم، سنتعلم معاً أعظم دالة في الإكسل: VLOOKUP، لنجعل البيانات تبحث عن نفسها بنفسها!',
-    objectives: ['تسهيل قراءة وكتابة المعادلات المعقدة باستخدام Name Manager', 'تقييد إدخال البيانات وإنشاء رسائل خطأ مخصصة (ومرحة) عبر Data Validation', 'احتراف دالة VLOOKUP لربط البيانات والبحث عنها بلمح البصر'],
+    objectives: ['تسهيل قراءة وكتابة المعادلات المعقدة باستخدام Name Manager', 'تقييد إدخال البيانات وإنشاء رسائل خطأ مخصصة عبر Data Validation', 'احتراف دالة VLOOKUP لربط البيانات والبحث عنها بلمح البصر'],
     videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQRyTqZGsYWpQ4BFaLNCB5sJARxjBruaQnd24lJXmBjV6Eg?width=1920&height=1080', 
     files: [
       { name: 'Name Manager', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQBWNL3hDXvDSo3ZWsv8N0xYAb5CXZOv9sLVSldBGIt0Dzw?download=1', type: 'Excel Workbook' },
@@ -62,6 +62,19 @@ const COURSE_DATA = {
     ]
   },
   6: {
+    title: 'خفايا الطباعة، التنقل السحري، والاحتراف المطلق لـ VLOOKUP',
+    desc: 'اتقان الطباعة الاحترافية، التنقل السريع باستخدام Go To Special، وخفايا البحث المتقدم.',
+    story: 'استعد لمحاضرة مليئة بالخدع السحرية! هل تعاني من طباعة الجداول وتنسيقها؟ سنقضي على هذه المشكلة تماماً ونجعلك تطبع أي ملف باحترافية تامة مع ضبط الرأس والتذييل. سنتعلم أيضاً كيف "نطير" داخل الإكسل ونصل لأي معلومة مخفية بلمح البصر باستخدام "Go To Special". ولأن VLOOKUP هي العشق، سنعود إليها لنعزف معاً ألحاناً متقدمة ونكشف أسرارها العميقة!',
+    objectives: ['احتراف طباعة الملفات وتنسيق الرأس والتذييل (Header & Footer)', 'التنقل السريع والذكي واستكشاف خبايا أداة Go To Special', 'الغوص في الحالات المتقدمة والاحترافية لدالة VLOOKUP'],
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQRi-N0K7oBRQKvK1gQCuB14AdogNfQ2FV5znFGsJCpaazM?width=1920&height=1080', 
+    files: [
+      { name: 'Print Perfection (الطباعة الاحترافية)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQAFmROmkaRDS7Ti-RqMKTBVAYNgZwUOjXbqXPFUK4SqQH0?download=1', type: 'Excel Workbook' },
+      { name: 'Excel Navigation (التنقل الذكي)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCsWVz8cAQAQ6jraEhAC5W3ARGwRDpzK1bf1I8ggPjQ2js?download=1', type: 'Excel Workbook' },
+      { name: 'Data Lookup Symphony (VLOOKUP المتقدم)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQBii14BNy8TS7UOk05UdahLAV0nBcGAiuJ-VRkMKYGVP2U?download=1', type: 'Excel Workbook' },
+      { name: 'Assignment 3 (الواجب الثالث)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCG7rrCA_ojRJ8KaAGz9xY0AVzn0klBEt4figKZ3FTfkh0?download=1', type: 'Excel Workbook' }
+    ]
+  },
+  7: {
     title: 'Pivot Tables',
     desc: 'الجداول المحورية — سلاح المحلل الرقمي الأقوى.',
     story: 'إذا كان هناك مهارة واحدة ستوفر عليك مئات الساعات من العمل اليدوي، فهي الجداول المحورية. الأداة الأقوى لتلخيص ملايين السجلات في ثوانٍ.',
@@ -69,7 +82,7 @@ const COURSE_DATA = {
     videoUrl: '', 
     files: []
   },
-  7: {
+  8: {
     title: 'الرسوم البيانية والتصور',
     desc: 'تحويل الأرقام إلى قصص بصرية مؤثرة.',
     story: 'الأرقام قد تكون مملة وصعبة الفهم، لكن الرسوم البيانية تجعلها تنطق! سنتعلم كيف نختار الرسم المناسب لعرض تقارير بصرية رائعة وسهلة الفهم.',
@@ -77,19 +90,11 @@ const COURSE_DATA = {
     videoUrl: '', 
     files: []
   },
-  8: {
-    title: 'الماكرو والأتمتة',
-    desc: 'أتمتة المهام المتكررة ووفّر ساعات من عملك.',
-    story: 'توقف عن تكرار نفس الخطوات يومياً! في هذه المحاضرة ستتعلم كيف تسجل خطواتك وتجعل Excel يقوم بالعمل الروتيني نيابة عنك بضغطة زر.',
-    objectives: ['مفهوم الأتمتة وتسجيل الماكرو (Macro)', 'تعديل المهام المسجلة بخطوات بسيطة', 'ربط الماكرو بأزرار تفاعلية في الشيت'],
-    videoUrl: '', 
-    files: []
-  },
   9: {
-    title: 'Power Query',
-    desc: 'استيراد وتحويل البيانات بقوة لا تصدق.',
-    story: 'الأداة السحرية والمخفية في Excel! سنتعلم كيف ننظف ونرتب البيانات الفوضوية القادمة من مصادر وأنظمة مختلفة بشكل آلي وقابل للتحديث.',
-    objectives: ['استيراد البيانات من مصادر متعددة', 'تنظيف الجداول وإزالة الأخطاء والفراغات', 'دمج ملفات مختلفة في جدول واحد'],
+    title: 'Power Query والأتمتة',
+    desc: 'استيراد وتحويل البيانات بقوة لا تصدق وأتمتة المهام.',
+    story: 'الأداة السحرية والمخفية في Excel! سنتعلم كيف ننظف ونرتب البيانات الفوضوية القادمة من مصادر مختلفة بشكل آلي، وكيف نوفر ساعات من العمل الروتيني.',
+    objectives: ['استيراد البيانات من مصادر متعددة وتنظيفها', 'دمج ملفات مختلفة في جدول واحد', 'مقدمة سريعة في أتمتة المهام المتكررة'],
     videoUrl: '', 
     files: []
   },
