@@ -132,7 +132,6 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <div class="logo-box">X</div>
@@ -149,7 +148,6 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
   </div>
 </nav>
 
-<!-- HERO BANNER -->
 <div class="dash-hero">
   <div class="dash-hero-orb"></div>
   <div class="dash-hero-content">
@@ -175,7 +173,6 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="dash-content">
   <div class="section-header">
     <div class="section-title-wrap">
@@ -193,8 +190,6 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
   <div class="cards-grid" id="cardsGrid"></div>
 </div>
 
-<script>
-// ── DATA ──
 <script src="data.js"></script>
 
 <script>
@@ -212,7 +207,7 @@ lectures.forEach(lec => {
     lec.title = data.title;
     lec.desc = data.desc;
     // إذا كان هناك فيديو، المحاضرة متاحة (true)، وإلا (false)
-    lec.hasContent = data.videoEmbed !== ''; 
+    lec.hasContent = data.videoEmbed && data.videoEmbed.trim() !== ''; 
   }
 });
 
@@ -281,7 +276,7 @@ function renderCards(filter = 'all') {
         <div class="card-desc">${lec.desc || 'سيتم إضافة التفاصيل قريباً'}</div>
         <div class="card-progress">
           <div class="cp-bar"><div class="cp-fill" style="width:${isCompleted ? 100 : 0}%"></div></div>
-          <div class="cp-label"><span>الحالة</span><span>${isCompleted ? '100%' : '0%'}</span></div>
+          <div class="cp-label"><span>${isCompleted ? 'مكتملة' : (isLocked ? 'مقفلة' : (!lec.hasContent ? 'قريباً' : 'متاحة'))}</span><span>${isCompleted ? '100%' : '0%'}</span></div>
         </div>
       </div>
       <div class="card-footer">${btn}<span class="duration-tag">⏱ ~45 دقيقة</span></div>`;
@@ -300,138 +295,12 @@ function renderCards(filter = 'all') {
 }
 
 renderCards();
-document.querySelectorAll('.filter-tab').forEach(tab => {
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    this.classList.add('active'); renderCards(this.dataset.filter);
-  });
-});
-const themeToggle = document.getElementById('themeToggle');
-let dark = true;
-themeToggle.addEventListener('click', () => {
-  dark = !dark; document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-  themeToggle.textContent = dark ? '🌙' : '☀️';
-});
-document.getElementById('logoutBtn').addEventListener('click', () => {
-  if (confirm('هل تريد تسجيل الخروج؟')) { localStorage.clear(); location.href = 'login.html'; }
-});
-</script>
-// ── AUTH CHECK ──
-const user = localStorage.getItem('excelPro_user');
-const role = localStorage.getItem('excelPro_role');
-if (!user) { location.href = 'login.html'; }
-
-// ── PROGRESS ──
-function getProgress() {
-  const raw = localStorage.getItem('excelPro_progress');
-  if (raw) return JSON.parse(raw);
-  return { completed: [], locked: role === 'admin' ? [] : [2,3,4,5,6,7,8,9,10] };
-}
-function saveProgress(p) { localStorage.setItem('excelPro_progress', JSON.stringify(p)); }
-
-// ── UI SETUP ──
-const nameEl = document.getElementById('userName');
-const greetName = document.getElementById('greetName');
-const avatarEl = document.getElementById('avatarInitial');
-const adminBadge = document.getElementById('adminBadge');
-
-nameEl.textContent = user;
-greetName.textContent = user;
-avatarEl.textContent = user.charAt(0).toUpperCase();
-if (role === 'admin') adminBadge.style.display = 'inline-flex';
-
-// ── RENDER CARDS ──
-function renderCards(filter = 'all') {
-  const progress = getProgress();
-  const grid = document.getElementById('cardsGrid');
-  grid.innerHTML = '';
-
-  let completed = 0, available = 0;
-
-  lectures.forEach(lec => {
-    const isCompleted = progress.completed.includes(lec.id);
-    const isLocked = role !== 'admin' && progress.locked.includes(lec.id);
-    let state = isLocked ? 'locked' : (isCompleted ? 'completed' : 'available');
-
-    if (filter !== 'all' && filter !== state) return;
-    if (isCompleted) completed++;
-    if (!isLocked && !isCompleted) available++;
-
-    const card = document.createElement('div');
-    card.className = `lecture-card ${state}`;
-    card.dataset.state = state;
-
-    let statusBadgeHTML = '';
-    let btnHTML = '';
-    let thumbIconHTML = '';
-
-    if (isCompleted) {
-      statusBadgeHTML = `<span class="card-status-badge badge-completed">✓ مكتملة</span>`;
-      thumbIconHTML = `<span class="card-status-icon">✅</span>`;
-      btnHTML = `<button class="go-btn" onclick="location.href='lecture${lec.id}.html'">مراجعة ←</button>`;
-    } else if (isLocked) {
-      statusBadgeHTML = `<span class="card-status-badge badge-locked">🔒 مقفلة</span>`;
-      thumbIconHTML = `<div class="locked-overlay">🔒</div>`;
-      btnHTML = `<button class="go-btn-ghost" disabled>أكمل السابقة أولاً</button>`;
-    } else if (!lec.hasContent) {
-      statusBadgeHTML = `<span class="card-status-badge badge-soon">⏳ قريباً</span>`;
-      thumbIconHTML = `<span class="card-status-icon">⏳</span>`;
-      btnHTML = `<button class="go-btn-ghost" disabled>قريباً</button>`;
-    } else {
-      statusBadgeHTML = `<span class="card-status-badge badge-available">▶ متاحة</span>`;
-      thumbIconHTML = `<span class="card-status-icon">${lec.icon}</span>`;
-      btnHTML = `<button class="go-btn" onclick="location.href='lecture${lec.id}.html'">ابدأ المحاضرة ←</button>`;
-    }
-
-    card.innerHTML = `
-      <div class="card-thumb">
-        <div class="card-thumb-bg"></div>
-        <span class="card-num-big">${lec.id}</span>
-        ${thumbIconHTML}
-      </div>
-      <div class="card-body">
-        <div class="card-meta">
-          <div class="card-number">${lec.id}</div>
-          ${statusBadgeHTML}
-        </div>
-        <div class="card-title">${lec.title}</div>
-        <div class="card-desc">${lec.desc}</div>
-        <div class="card-progress">
-          <div class="cp-bar"><div class="cp-fill" style="width:${isCompleted ? 100 : 0}%"></div></div>
-          <div class="cp-label"><span>${isCompleted ? 'مكتملة' : (isLocked ? 'مقفلة' : (!lec.hasContent ? 'قريباً' : 'متاحة'))}</span><span>${isCompleted ? '100%' : '0%'}</span></div>
-        </div>
-      </div>
-      <div class="card-footer">
-        ${btnHTML}
-        <span class="duration-tag">⏱ ~45 دقيقة</span>
-      </div>`;
-
-    if (!isLocked) {
-      card.addEventListener('click', function(e) {
-        if (e.target.tagName === 'BUTTON') return;
-        if (lec.hasContent && !isLocked) location.href = `lecture${lec.id}.html`;
-      });
-    }
-
-    grid.appendChild(card);
-  });
-
-  // Update progress widget
-  const pct = Math.round((completed / 10) * 100);
-  document.getElementById('progressPct').textContent = pct + '%';
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('completedCount').textContent = completed;
-  document.getElementById('availableCount').textContent = available;
-}
-
-renderCards();
 
 // ── FILTER TABS ──
 document.querySelectorAll('.filter-tab').forEach(tab => {
   tab.addEventListener('click', function() {
     document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    this.classList.add('active');
-    renderCards(this.dataset.filter);
+    this.classList.add('active'); renderCards(this.dataset.filter);
   });
 });
 
@@ -439,18 +308,13 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
 const themeToggle = document.getElementById('themeToggle');
 let dark = true;
 themeToggle.addEventListener('click', () => {
-  dark = !dark;
-  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  dark = !dark; document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
   themeToggle.textContent = dark ? '🌙' : '☀️';
 });
 
 // ── LOGOUT ──
 document.getElementById('logoutBtn').addEventListener('click', () => {
-  if (confirm('هل تريد تسجيل الخروج؟')) {
-    localStorage.removeItem('excelPro_user');
-    localStorage.removeItem('excelPro_role');
-    location.href = 'login.html';
-  }
+  if (confirm('هل تريد تسجيل الخروج؟')) { localStorage.clear(); location.href = 'login.html'; }
 });
 </script>
 </body>
