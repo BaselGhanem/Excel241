@@ -207,7 +207,7 @@ lectures.forEach(lec => {
     lec.title = data.title;
     lec.desc = data.desc;
     // إذا كان هناك فيديو، المحاضرة متاحة (true)، وإلا (false)
-    lec.hasContent = data.videoEmbed && data.videoEmbed.trim() !== ''; 
+lec.hasContent = data.videoUrl && data.videoUrl.trim() !== '';
   }
 });
 
