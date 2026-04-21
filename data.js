@@ -1,15 +1,13 @@
 // قاعدة بيانات الدورة
 const COURSE_DATA = {
   1: {
-    title: 'مقدمة في Excel',
-    desc: 'التعرف على الواجهة، الأدوات الأساسية، وأهمية Excel في عالم الأعمال.',
-    story: 'في هذه المحاضرة نكسر الجدار الأول ونجعل Excel مألوفاً تماماً قبل أي صيغة أو دالة. سنتعرف على أساسيات التعامل مع الخلايا وكيفية التنقل كالمحترفين.',
-    objectives: ['التعرف على واجهة Excel وأدواته', 'فهم هيكل الخلايا، الصفوف، والأعمدة', 'التنقل بكفاءة داخل أوراق العمل'],
+    title: 'مقدمة في Excel وشريط الأدوات (Ribbons)',
+    desc: 'التعرف على الواجهة، شريط الأدوات (Ribbons)، وأهمية Excel في عالم الأعمال.',
+    story: 'نبدأ رحلتنا بكسر الجدار الأول مع الإكسل. سنتعرف على الواجهة بالتفصيل، ونغوص في شريط الأدوات (Ribbons) لنشرح كل أيقونة وكيفية استخدامها للتحكم الكامل بأوراق العمل.',
+    objectives: ['التعرف على واجهة Excel وأدواته', 'فهم شريط الأدوات (Ribbons) ووظيفة كل أيقونة', 'التنقل بكفاءة داخل أوراق العمل'],
     videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQQPNsV0qfZ8Sr6eZQHbHsgwAZa32zBChYmvLDUSryy-l8s?width=1920&height=1080',
     files: [
-      // تم تغيير ?e=YQpZSC إلى ?download=1
-      { name: 'Taps Part 1', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQB0qdk3vnJiQpZhWiPTbpEaAZo1yC2eLg_qCffdXALYGDk?download=1', type: 'Excel Workbook' },
-      { name: 'ملحق اختصارات لوحة المفاتيح', url: 'https://onedrive.live.com/...', type: 'PDF Document' }
+      { name: 'شرح القوائم والأدوات (Ribbons)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQB0qdk3vnJiQpZhWiPTbpEaAZo1yC2eLg_qCffdXALYGDk?download=1', type: 'Excel Workbook' }
     ]
   },
   2: {
@@ -17,29 +15,39 @@ const COURSE_DATA = {
     desc: 'SUM، AVERAGE، COUNT وكيفية توظيفها في الحياة العملية.',
     story: 'في هذه المحاضرة سننتقل من مجرد إدخال البيانات إلى جعل Excel يحسب نيابة عنك. سنتعلم أهم الدوال الأساسية التي لا غنى عنها في أي بيئة عمل.',
     objectives: ['فهم الهيكل الصحيح لكتابة الصيغ', 'تطبيق دوال الجمع والمتوسط (SUM, AVERAGE)', 'استخدام دوال العد (COUNT) وتجنب الأخطاء'],
-    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQB4-XD-9DlAT5NS_MleLUCVAdXRIrMhQ3t3-vcrm8cV6Z4?e=p3iqKG', 
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQR4-XD-9DlAT5NS_MleLUCVAWu3s7mXAb2kUBrK3e4akCc?width=1920&height=1080',
     files: [
-      // تم تغيير ?e=rZr4w8 إلى ?download=1
       { name: 'Taps Part 2', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCXteAQFYtZSp8adjzNOA8UARV4JNgWt-mcmfSqmtcesm8?download=1', type: 'Excel Workbook' },
-      // تم تغيير ?e=5Zl2Zo إلى ?download=1
       { name: 'كل معادلات الاكسل شرح بالعربي', url: 'https://1drv.ms/b/c/a1a27fad04d192e9/IQAjEFtIAbcwQKfQsQTUI3KDAZy4DqJ5ZRPm3wCS7H8gNl4?download=1', type: 'PDF Document' }
     ]
   },
   3: {
-    title: 'تنظيم وتنسيق البيانات',
-    desc: 'جداول منظمة واحترافية تعكس مهارتك في إدارة البيانات.',
-    story: 'التنسيق ليس فقط للشكل الجمالي، بل لسهولة قراءة البيانات وتحليلها. سنتعلم كيف ننسق جداولنا بطريقة تبهر الإدارة وتسهل استخراج المعلومات.',
-    objectives: ['تنسيق الخلايا والجداول باحترافية', 'استخدام التنسيق الشرطي (Conditional Formatting)', 'ترتيب وتصفية البيانات الأساسية'],
-    videoUrl: '', 
-    files: []
+    title: 'مهارات توفير الوقت واللصق الخاص',
+    desc: 'تعديل الشيتات المتعددة، اختصارات هامة، اللصق الخاص (Paste Special) ومقدمة للرسوم البيانية.',
+    story: 'محاضرة دسمة جداً! سنتعلم خدعاً توفر الكثير من الوقت مثل التعديل على عدة أوراق عمل في نفس اللحظة (Multiple Sheets)، وأسرار اللصق الخاص، بالإضافة إلى مقدمة في الرسوم البيانية وأهم اختصارات الكيبورد.',
+    objectives: ['التعديل على أوراق عمل متعددة دفعة واحدة (Ctrl + Select)', 'استخدام اللصق الخاص (Paste Special) باحترافية', 'إنشاء الرسوم البيانية (Charts) واستخدام اختصارات الإكسل'],
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQRo2LpEw6SgQ5cy-iPyhJhIAWsN2YTN79rxvR_KRfzoSDc?width=1920&height=1080',
+    files: [
+      { name: 'Editing Multiple Sheets', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCe_r8UCHT3T5dZDE7iZbj7ASspBimLh6kukcelzqYRNaY?download=1', type: 'Excel Workbook' },
+      { name: 'جميع اختصارات الاكسل', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQA7jo5VIwEHQKif0xKZT8cJAXJ61kD8GP5bKOSkKpmS7dA?download=1', type: 'Excel Workbook' },
+      { name: 'Charts & Data Visualization', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQDDlpkxdaHNQr3qnuER0yg-AWPrhU4GpNkcirr1l4Mg8JM?download=1', type: 'Excel Workbook' },
+      { name: 'Copy & Paste Special', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQB8i-J1kgSASJ_kXjUSeeUYAUdQ7HXJekEpaH4f-YRxZ-U?download=1', type: 'Excel Workbook' },
+      { name: 'Assignment 2 (الواجب الأول)', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQAv5oSuJ24MTbdJsQZLhpjpAalv2wc5Yc-3-lQOKBICfmw?download=1', type: 'Excel Workbook' }
+    ]
   },
   4: {
-    title: 'الدوال المتقدمة',
-    desc: 'VLOOKUP، IF، INDEX-MATCH — أدوات المحترفين.',
-    story: 'هنا يبدأ السحر الحقيقي! سنتعلم كيف نجعل الإكسل يتخذ القرارات المنطقية ويبحث عن البيانات المشتتة ويربطها ببعضها بشكل آلي.',
-    objectives: ['إتقان دالة البحث الشهيرة VLOOKUP', 'بناء شروط معقدة باستخدام الدالة المنطقية IF', 'الربط بين جداول وأوراق عمل مختلفة'],
-    videoUrl: '', 
-    files: []
+    title: 'التنسيق الشرطي المتقدم والدوال الإحصائية',
+    desc: 'احتراف التنسيق الشرطي (Conditional Formatting) ودوال العد والمجاميع المتقدمة.',
+    story: 'نبدأ برفع مستوى الاحتراف. سنتعمق في التنسيق الشرطي الديناميكي لنجعل التقارير تتفاعل مع البيانات تلقائياً. وسنستكشف قوة دوال العد المتقدمة (Counts) وأدوات المجاميع (Subtotal & SumProduct) التي تفصل المحترف عن المبتدئ.',
+    objectives: ['إتقان التنسيق الشرطي الديناميكي (Dynamic Design)', 'استخدام دوال Subtotal و SumProduct باحتراف', 'احتراف دوال العد المتقدمة (Mastering Counts)'],
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQRO-5Vwp87MQZl8bklQ2UYHAQoqzY1n4JI3XGkiX_S0SII?width=1920&height=1080',
+    files: [
+      { name: '08-Dynamic Design Conditional', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQAt009GwcxMS6Fy5yYcKr2YAYtWjlqVH2209NltgxX3c88?download=1', type: 'Excel Workbook' },
+      { name: '10-Subtotal & SumProduct', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQAcXPk6KUb_TIPGUc9VMmJlAebIeh-immuB32J2qXApYvs?download=1', type: 'Excel Workbook' },
+      { name: '11-Conditional Formatting Extras', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQBuGyejtcaETJX6q1CggYLhAV8yF3kXbQLoWKxZBFvLwqo?download=1', type: 'Excel Workbook' },
+      { name: '12-On-Mastering Counts & More', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCUA73oU3m5TbULoSHNn282AXg2khtNGi4yCoC-DKh13no?download=1', type: 'Excel Workbook' },
+      { name: 'Session Exercise', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCXq0RY3rhSQLB_0_lIhcJKAU8K_tlMbfsdcXYcbs8dMWo?download=1', type: 'Excel Workbook' }
+    ]
   },
   5: {
     title: 'تحليل البيانات',
