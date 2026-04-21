@@ -5,9 +5,9 @@ const COURSE_DATA = {
     desc: 'التعرف على الواجهة، الأدوات الأساسية، وأهمية Excel في عالم الأعمال.',
     story: 'في هذه المحاضرة نكسر الجدار الأول ونجعل Excel مألوفاً تماماً قبل أي صيغة أو دالة. سنتعرف على أساسيات التعامل مع الخلايا وكيفية التنقل كالمحترفين.',
     objectives: ['التعرف على واجهة Excel وأدواته', 'فهم هيكل الخلايا، الصفوف، والأعمدة', 'التنقل بكفاءة داخل أوراق العمل'],
-    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQR4-XD-9DlAT5NS_MleLUCVAWu3s7mXAb2kUBrK3e4akCc?width=1920&height=1080',
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQQPNsV0qfZ8Sr6eZQHbHsgwAZa32zBChYmvLDUSryy-l8s?width=1920&height=1080',
     files: [
-      { name: 'ملف التدريب الأساسي', url: 'https://onedrive.live.com/...', type: 'Excel Workbook' },
+      { name: 'Taps Part 1', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQB0qdk3vnJiQpZhWiPTbpEaAZo1yC2eLg_qCffdXALYGDk?e=YQpZSC', type: 'Excel Workbook' },
       { name: 'ملحق اختصارات لوحة المفاتيح', url: 'https://onedrive.live.com/...', type: 'PDF Document' }
     ]
   },
