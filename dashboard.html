@@ -140,8 +140,9 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
   <div class="nav-right">
     <div class="user-chip">
       <div class="avatar" id="avatarInitial">؟</div>
-      <span id="userName">طالب</span>
-      <span class="admin-badge" id="adminBadge" style="display:none">أدمن</span>
+<span id="userName">طالب</span>
+<span class="admin-badge" id="adminBadge" style="display:none">أدمن</span>
+<span class="admin-badge" id="guestBadge" style="display:none; background: linear-gradient(135deg, #4a6075, #1a2433);">ضيف</span>
     </div>
     <button class="icon-btn" id="themeToggle" title="تغيير المظهر">🌙</button>
     <button class="icon-btn" id="logoutBtn" title="تسجيل الخروج">⏏</button>
@@ -193,6 +194,16 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 <script src="data.js"></script>
 
 <script>
+  // كود الحماية - يوضع في أعلى سكريبت المحاضرات من 2 إلى 10
+const currentUser = localStorage.getItem('excelPro_user');
+const currentRole = localStorage.getItem('excelPro_role');
+
+if (!currentUser) {
+  window.location.href = 'login.html';
+} else if (currentRole === 'guest') {
+  alert('عذراً، هذا المحتوى غير متاح في وضع الضيف. يرجى تسجيل الدخول بحسابك للوصول إلى هذه المحاضرة.');
+  window.location.href = 'login.html';
+}
 // ── DATA ──
 const lectures = [
   { id:1, icon:'📊' }, { id:2, icon:'🧮' }, { id:3, icon:'📋' },
@@ -229,7 +240,7 @@ document.getElementById('userName').textContent = user;
 document.getElementById('greetName').textContent = user;
 document.getElementById('avatarInitial').textContent = user.charAt(0).toUpperCase();
 if (role === 'admin') document.getElementById('adminBadge').style.display = 'inline-flex';
-
+if (role === 'guest') document.getElementById('guestBadge').style.display = 'inline-flex';
 // ── RENDER CARDS ──
 function renderCards(filter = 'all') {
   const progress = getProgress();
