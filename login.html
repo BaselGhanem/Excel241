@@ -144,11 +144,24 @@ body{font-family:'Almarai',sans-serif;background:var(--bg);color:var(--text-prim
       <span class="btn-text">دخول إلى الدورة ←</span>
       <span class="btn-spinner"><div class="spinner"></div></span>
     </button>
-
+<button class="btn-login" id="guestBtn" type="button" style="background: transparent; border: 1.5px solid var(--border); color: var(--text-secondary); margin-top: 12px; box-shadow: none;">
+  <span class="btn-text">الدخول كضيف (المحاضرة الأولى فقط)</span>
+</button>
   </div>
 </div>
 
 <script>
+  document.getElementById('guestBtn').addEventListener('click', () => {
+  hideAlerts();
+  localStorage.setItem('excelPro_user', 'ضيف');
+  localStorage.setItem('excelPro_role', 'guest');
+  // قفل جميع المحاضرات عدا الأولى للضيف
+  localStorage.setItem('excelPro_progress', JSON.stringify({ completed: [], locked: [2,3,4,5,6,7,8,9,10] }));
+  
+  const card = document.querySelector('.login-card');
+  card.style.opacity = '0.5';
+  setTimeout(() => { location.href = 'dashboard.html'; }, 500);
+});
 // Theme
 const toggle = document.getElementById('themeToggle');
 let dark = true;
