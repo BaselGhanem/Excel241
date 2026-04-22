@@ -15,7 +15,7 @@ const COURSE_DATA = {
     desc: 'SUM، AVERAGE، COUNT وكيفية توظيفها في الحياة العملية.',
     story: 'في هذه المحاضرة سننتقل من مجرد إدخال البيانات إلى جعل Excel يحسب نيابة عنك. سنتعلم أهم الدوال الأساسية التي لا غنى عنها في أي بيئة عمل.',
     objectives: ['فهم الهيكل الصحيح لكتابة الصيغ', 'تطبيق دوال الجمع والمتوسط (SUM, AVERAGE)', 'استخدام دوال العد (COUNT) وتجنب الأخطاء'],
-    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQR4-XD-9DlAT5NS_MleLUCVAWu3s7mXAb2kUBrK3e4akCc?width=1920&height=1080', 
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQB4-XD-9DlAT5NS_MleLUCVAdXRIrMhQ3t3-vcrm8cV6Z4?e=p3iqKG', 
     files: [
       { name: 'Taps Part 2', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCXteAQFYtZSp8adjzNOA8UARV4JNgWt-mcmfSqmtcesm8?download=1', type: 'Excel Workbook' },
       { name: 'كل معادلات الاكسل شرح بالعربي', url: 'https://1drv.ms/b/c/a1a27fad04d192e9/IQAjEFtIAbcwQKfQsQTUI3KDAZy4DqJ5ZRPm3wCS7H8gNl4?download=1', type: 'PDF Document' }
@@ -86,12 +86,17 @@ const COURSE_DATA = {
     ]
   },
   8: {
-    title: 'الجداول المحورية (Pivot Tables) والرسوم البيانية',
-    desc: 'تحويل ملايين السجلات إلى قصص بصرية وتقارير تفاعلية.',
-    story: 'الآن وقت الإبهار! إذا كان هناك مهارة واحدة ستوفر عليك مئات الساعات من العمل اليدوي، فهي الجداول المحورية (Pivot Tables). سنتعلم كيف نلخص ملايين البيانات في ثوانٍ، ثم نحول هذه الأرقام الجامدة إلى رسوم بصرية (Charts) تنطق بالقصص والإنجازات أمام الإدارة.',
-    objectives: ['إنشاء الجداول المحورية من الصفر وإضافة الحقول المحسوبة والشرائح (Slicers)', 'اختيار الرسم البياني المناسب للبيانات لتوصيل الفكرة بوضوح', 'تنسيق المخططات وإنشاء تقارير بصرية تفاعلية'],
-    videoUrl: '', 
-    files: []
+    title: 'سحر Flash Fill، الشروط المتداخلة، ودوال النصوص و INDEX MATCH',
+    desc: 'تسريع العمل بـ Flash Fill، إتقان دالة IF المتداخلة، التلاعب بالنصوص، والسر الأعظم INDEX و MATCH.',
+    story: 'جاهزون لجرعة مكثفة من أسرار المحترفين؟ سنبدأ بسحر خاصية Flash Fill التي ستنجز ساعات من العمل في ثانية واحدة وبطريقة مرتبة جداً! ثم سنبني منطقاً حديدياً بتداخل معادلات IF المتعددة لنعالج أعقد الحالات العملية. ولأن البيانات غالباً ما تأتي فوضوية، سنسيطر عليها تماماً باستخدام ترسانة من دوال النصوص القوية (مثل TEXTSPLIT و TRIM وغيرها). وأخيراً، سنكشف عن السلاح السري للمحللين المتقدمين: دمج معادلة INDEX مع MATCH للبحث بمرونة لا حدود لها!',
+    objectives: ['تسريع المهام الروتينية وتنظيف البيانات باستخدام الذكاء المدمج لخاصية Flash Fill', 'بناء شروط منطقية معقدة ومتداخلة باستخدام IF Statement لسيناريوهات العمل المختلفة', 'معالجة وتنظيف النصوص المعقدة باستخدام ترسانة الدوال (TRUNC, TRIM, TEXTSPLIT, etc.)', 'احتراف البحث المتقدم والبديل الأقوى لـ VLOOKUP باستخدام دمج INDEX و MATCH'],
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQQJTmLRfnJBSY0Sp9WX8A4YAe8u0_S9RA301a28r9177TM?width=1920&height=1080', 
+    files: [
+      { name: '20-Flash Fill', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQB9UN6ggTfbQ7YJ1_S7DrTwAUUd1knuMK3hJZvpH0I5R4k?download=1', type: 'Excel Workbook' },
+      { name: 'If statement and IF combined', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQDdtuy7vk2aSJHJZ5U5sASTATCQW6Mn8xvkg_wG4a0OSBQ?download=1', type: 'Excel Workbook' },
+      { name: '22-Text formulas', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQBzhLqNBDQ3QJ_lOx7HD4ZbAc45Mq50w5wI_B8tsmQYQng?download=1', type: 'Excel Workbook' },
+      { name: 'Index Match Magic', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQClppGCEXrET4LQeX8po57YAYDwipzamtazNJQikYjZJXg?download=1', type: 'Excel Workbook' }
+    ]
   },
   9: {
     title: 'Power Query والأتمتة',
