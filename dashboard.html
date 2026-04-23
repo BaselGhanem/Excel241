@@ -194,115 +194,108 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 <script src="data.js"></script>
 
 <script>
-  // كود الحماية - يوضع في أعلى سكريبت المحاضرات من 2 إلى 10
+// ── AUTH CHECK ──
 const currentUser = localStorage.getItem('excelPro_user');
 const currentRole = localStorage.getItem('excelPro_role');
 
 if (!currentUser) {
   window.location.href = 'login.html';
 } else if (currentRole === 'guest') {
-  alert('عذراً، هذا المحتوى غير متاح في وضع الضيف. يرجى تسجيل الدخول بحسابك للوصول إلى هذه المحاضرة.');
+  alert('عذراً، هذا المحتوى غير متاح في وضع الضيف. يرجى تسجيل الدخول بحسابك للوصول إلى الدورة.');
   window.location.href = 'login.html';
 }
-// ── DATA ──
-const lectures = [
-  { id:1, icon:'📊' }, { id:2, icon:'🧮' }, { id:3, icon:'📋' },
-  { id:4, icon:'⚡' }, { id:5, icon:'🔍' }, { id:6, icon:'🔄' },
-  { id:7, icon:'📈' }, { id:8, icon:'🤖' }, { id:9, icon:'⚙️' }, { id:10, icon:'🏆' }
-];
 
-// دمج البيانات المركزية مع المصفوفة السابقة
-lectures.forEach(lec => {
-  const data = COURSE_DATA[lec.id];
-  if(data) {
-    lec.title = data.title;
-    lec.desc = data.desc;
-    // إذا كان هناك فيديو، المحاضرة متاحة (true)، وإلا (false)
-lec.hasContent = data.videoUrl && data.videoUrl.trim() !== '';
-  }
-});
+// ── UI SETUP ──
+document.getElementById('userName').textContent = currentUser;
+document.getElementById('greetName').textContent = currentUser;
+document.getElementById('avatarInitial').textContent = currentUser.charAt(0).toUpperCase();
+if (currentRole === 'admin') document.getElementById('adminBadge').style.display = 'inline-flex';
+if (currentRole === 'guest') document.getElementById('guestBadge').style.display = 'inline-flex';
 
-// ── AUTH CHECK ──
-const user = localStorage.getItem('excelPro_user');
-const role = localStorage.getItem('excelPro_role');
-if (!user) { location.href = 'login.html'; }
+// ── PROGRESS LOGIC ──
+const TOTAL_LESSONS = CourseService.getAllLessons().length;
 
-// ── PROGRESS ──
 function getProgress() {
   const raw = localStorage.getItem('excelPro_progress');
   if (raw) return JSON.parse(raw);
-  return { completed: [], locked: role === 'admin' ? [] : [2,3,4,5,6,7,8,9,10] };
+  return { completed: [], locked: currentRole === 'admin' ? [] : Array.from({length: TOTAL_LESSONS - 1}, (_, i) => i + 2) };
 }
-function saveProgress(p) { localStorage.setItem('excelPro_progress', JSON.stringify(p)); }
 
-// ── UI SETUP ──
-document.getElementById('userName').textContent = user;
-document.getElementById('greetName').textContent = user;
-document.getElementById('avatarInitial').textContent = user.charAt(0).toUpperCase();
-if (role === 'admin') document.getElementById('adminBadge').style.display = 'inline-flex';
-if (role === 'guest') document.getElementById('guestBadge').style.display = 'inline-flex';
+// ── ICONS MAP ──
+const iconsMap = { 1:'📊', 2:'🧮', 3:'📋', 4:'⚡', 5:'🔍', 6:'🔄', 7:'📈', 8:'🤖', 9:'⚙️', 10:'🏆' };
+
 // ── RENDER CARDS ──
 function renderCards(filter = 'all') {
   const progress = getProgress();
   const grid = document.getElementById('cardsGrid');
   grid.innerHTML = '';
-  let completed = 0, available = 0;
+  
+  let completedCount = 0, availableCount = 0;
+  const allLessons = CourseService.getAllLessons();
 
-  lectures.forEach(lec => {
+  allLessons.forEach(lec => {
     const isCompleted = progress.completed.includes(lec.id);
-    const isLocked = role !== 'admin' && progress.locked.includes(lec.id);
+    const isLocked = currentRole !== 'admin' && progress.locked.includes(lec.id);
+    const hasContent = lec.videoUrl && lec.videoUrl.trim() !== '';
     let state = isLocked ? 'locked' : (isCompleted ? 'completed' : 'available');
 
     if (filter !== 'all' && filter !== state) return;
-    if (isCompleted) completed++;
-    if (!isLocked && !isCompleted) available++;
+    if (isCompleted) completedCount++;
+    if (!isLocked && !isCompleted) availableCount++;
 
     const card = document.createElement('div');
     card.className = `lecture-card ${state}`;
     
-    let badge = '', icon = '', btn = '';
+    let badge = '', iconHTML = '', btn = '';
+    const lecIcon = iconsMap[lec.id] || '📚'; 
+    const targetUrl = `lectures.html?id=${lec.id}`;
+
     if (isCompleted) {
       badge = `<span class="card-status-badge badge-completed">✓ مكتملة</span>`;
-      icon = `<span class="card-status-icon">✅</span>`;
-      btn = `<button class="go-btn" onclick="location.href='lecture${lec.id}.html'">مراجعة ←</button>`;
+      iconHTML = `<span class="card-status-icon">✅</span>`;
+      btn = `<button class="go-btn" onclick="location.href='${targetUrl}'">مراجعة ←</button>`;
     } else if (isLocked) {
       badge = `<span class="card-status-badge badge-locked">🔒 مقفلة</span>`;
-      icon = `<div class="locked-overlay">🔒</div>`;
+      iconHTML = `<div class="locked-overlay">🔒</div>`;
       btn = `<button class="go-btn-ghost" disabled>أكمل السابقة أولاً</button>`;
-    } else if (!lec.hasContent) {
+    } else if (!hasContent) {
       badge = `<span class="card-status-badge badge-soon">⏳ قريباً</span>`;
-      icon = `<span class="card-status-icon">⏳</span>`;
+      iconHTML = `<span class="card-status-icon">⏳</span>`;
       btn = `<button class="go-btn-ghost" disabled>قريباً</button>`;
     } else {
       badge = `<span class="card-status-badge badge-available">▶ متاحة</span>`;
-      icon = `<span class="card-status-icon">${lec.icon}</span>`;
-      btn = `<button class="go-btn" onclick="location.href='lecture${lec.id}.html'">ابدأ المحاضرة ←</button>`;
+      iconHTML = `<span class="card-status-icon">${lecIcon}</span>`;
+      btn = `<button class="go-btn" onclick="location.href='${targetUrl}'">ابدأ المحاضرة ←</button>`;
     }
 
+    const durationText = lec.duration ? `${lec.duration} دقيقة` : '~120 دقيقة';
+
     card.innerHTML = `
-      <div class="card-thumb"><div class="card-thumb-bg"></div><span class="card-num-big">${lec.id}</span>${icon}</div>
+      <div class="card-thumb"><div class="card-thumb-bg"></div><span class="card-num-big">${lec.id}</span>${iconHTML}</div>
       <div class="card-body">
         <div class="card-meta"><div class="card-number">${lec.id}</div>${badge}</div>
         <div class="card-title">${lec.title || 'محاضرة ' + lec.id}</div>
         <div class="card-desc">${lec.desc || 'سيتم إضافة التفاصيل قريباً'}</div>
         <div class="card-progress">
           <div class="cp-bar"><div class="cp-fill" style="width:${isCompleted ? 100 : 0}%"></div></div>
-          <div class="cp-label"><span>${isCompleted ? 'مكتملة' : (isLocked ? 'مقفلة' : (!lec.hasContent ? 'قريباً' : 'متاحة'))}</span><span>${isCompleted ? '100%' : '0%'}</span></div>
+          <div class="cp-label"><span>${isCompleted ? 'مكتملة' : (isLocked ? 'مقفلة' : (!hasContent ? 'قريباً' : 'متاحة'))}</span><span>${isCompleted ? '100%' : '0%'}</span></div>
         </div>
       </div>
-      <div class="card-footer">${btn}<span class="duration-tag">⏱ ~120 دقيقة</span></div>`;
+      <div class="card-footer">${btn}<span class="duration-tag">⏱ ${durationText}</span></div>`;
 
-    if (!isLocked && lec.hasContent) {
-      card.addEventListener('click', e => { if(e.target.tagName !== 'BUTTON') location.href = `lecture${lec.id}.html`; });
+    if (!isLocked && hasContent) {
+      card.addEventListener('click', e => { if(e.target.tagName !== 'BUTTON') location.href = targetUrl; });
     }
     grid.appendChild(card);
   });
 
-  const pct = Math.round((completed / 10) * 100);
-  document.getElementById('progressPct').textContent = pct + '%';
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('completedCount').textContent = completed;
-  document.getElementById('availableCount').textContent = available;
+  const calculatedProgress = LearningEngine.calculateCourseProgress(progress.completed);
+  
+  document.getElementById('progressPct').textContent = calculatedProgress + '%';
+  document.getElementById('progressFill').style.width = calculatedProgress + '%';
+  document.getElementById('completedCount').textContent = completedCount;
+  document.getElementById('availableCount').textContent = availableCount;
+  document.querySelector('.pw-stats .pw-stat:last-child .n').textContent = TOTAL_LESSONS;
 }
 
 renderCards();
