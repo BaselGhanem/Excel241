@@ -199,7 +199,7 @@ DATA.objectives.forEach(obj => { objList.innerHTML += `<li>${obj}</li>`; });
 // توليد الواجهة بناءً على البيانات
 if (DATA.videoUrl && DATA.videoUrl.trim() !== '') {
   document.getElementById('availableView').style.display = 'block';
-document.getElementById('videoTarget').innerHTML = `
+  document.getElementById('videoTarget').innerHTML = `
     <div id="videoLoader" class="video-loader">
       <div class="spinner"></div>
       <span>جاري تحميل الفيديو...</span>
@@ -211,7 +211,7 @@ document.getElementById('videoTarget').innerHTML = `
     DATA.files.forEach(file => {
       const icon = file.category === 'PDF' ? '📕' : (file.category === 'Assignments' ? '📝' : '📊');
       filesHTML += `
-<a class="dl-file" href="${file.url}" target="_blank" title="تنزيل ${file.name}" onclick="AnalyticsService.recordFileDownload('${file.code}')">
+      <a class="dl-file" href="${file.url}" target="_blank" title="تنزيل ${file.name}" onclick="AnalyticsService.recordFileDownload('${file.code}')">
         <span class="dl-icon">${icon}</span>
         <div class="dl-info">
           <span class="dl-name">${file.name}</span>
@@ -270,7 +270,7 @@ function updateUI() {
     document.getElementById('statusBadge').textContent = '✓ مكتملة';
   }
   
-const nextBtn = document.getElementById('nextBtn');
+  const nextBtn = document.getElementById('nextBtn');
   const lockHint = document.getElementById('lockHint');
   const nextIcon = document.getElementById('nextIcon');
 
@@ -284,12 +284,14 @@ const nextBtn = document.getElementById('nextBtn');
       nextBtn.classList.remove('locked-next'); 
       nextIcon.textContent = '←';
       lockHint.style.display = 'none';
-} else {
+  } else {
       nextBtn.classList.add('locked-next');
       nextIcon.textContent = '🔒';
       lockHint.style.display = 'block';
   }
-} // <--- هذا القوس كان مفقوداً لإغلاق دالة updateUI()function markComplete() {
+} // <--- تم إغلاق القوس هنا بنجاح
+
+function markComplete() {
   const progress = getProgress();
   if (progress.completed.includes(CURRENT_LEC_ID)) return;
   
