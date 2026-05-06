@@ -239,9 +239,20 @@ const role = localStorage.getItem('excelPro_role');
 
 function getProgress() {
   const raw = localStorage.getItem('excelPro_progress');
-  // افتراضياً الدروس مقفلة ما عدا الأول
-  const progress = raw ? JSON.parse(raw) : { completed: [], locked: role === 'admin' ? [] : Array.from({length: TOTAL_LESSONS - 1}, (_, i) => i + 2) };
-  currentUser.userData.completedLessons = progress.completed;
+  let progress = { completed: [], locked: role === 'admin' ? [] : Array.from({length: TOTAL_LESSONS - 1}, (_, i) => i + 2) };
+  
+  if (raw) {
+      try {
+          const parsed = JSON.parse(raw);
+          // الحماية من البيانات القديمة التي تسبب الشاشة البيضاء
+          progress.completed = parsed.completed || [];
+          progress.locked = parsed.locked || progress.locked;
+      } catch(e) {}
+  }
+  
+  if(currentUser && currentUser.userData) {
+      currentUser.userData.completedLessons = progress.completed;
+  }
   return progress;
 }
 
@@ -251,7 +262,6 @@ const pData = getProgress();
 const currentProgressPercent = LearningEngine.calculateCourseProgress(pData.completed);
 document.getElementById('ptFill').style.width = currentProgressPercent + '%';
 document.getElementById('ptDone').textContent = `${pData.completed.length} مكتملة`;
-// تحديث نص القائمة المنسدلة في صفحة "قريباً" ديناميكياً
 document.querySelectorAll('.pt-nums span:last-child').forEach(el => el.textContent = `من ${TOTAL_LESSONS} محاضرات`);
 
 function updateUI() {
@@ -289,7 +299,7 @@ function updateUI() {
       nextIcon.textContent = '🔒';
       lockHint.style.display = 'block';
   }
-} // <--- تم إغلاق القوس هنا بنجاح
+} // <--- القوس المفقود تم إضافته هنا بشكل قاطع
 
 function markComplete() {
   const progress = getProgress();
@@ -304,13 +314,12 @@ function markComplete() {
 }
 
 function goNext() {
-  if(NEXT_ID > TOTAL_LESSONS) return; // لا يوجد درس تالي
+  if(NEXT_ID > TOTAL_LESSONS) return; 
   
   const progress = getProgress();
   if (role !== 'admin' && progress.locked.includes(NEXT_ID) && !progress.completed.includes(CURRENT_LEC_ID)) {
     alert('أكمل هذه المحاضرة أولاً لفتح المحاضرة التالية.'); return;
   }
-  // الانتقال باستخدام الـ ID الديناميكي
   location.href = `lectures.html?id=${NEXT_ID}`;
 }
 
