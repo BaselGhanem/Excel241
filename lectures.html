@@ -137,14 +137,16 @@
         </div>
       </div>
       
-      <div class="nav-card">
+<div class="nav-card">
         <div class="nav-card-title">التنقل بين المحاضرات</div>
+        <div id="lockHint" style="display:none; color: var(--gold); font-size: 0.8rem; margin-bottom: 12px; font-weight: bold;">
+          🔒 يجب النقر على "سجّل إتمامي" لفتح المحاضرة التالية
+        </div>
         <button class="next-lec-btn locked-next" id="nextBtn" onclick="goNext()">
           <span class="sync-next-text"></span>
-          <span>←</span>
+          <span id="nextIcon">🔒</span>
         </button>
-      </div>
-      
+      </div>      
     </div>
   </div>
 </div>
@@ -268,17 +270,25 @@ function updateUI() {
     document.getElementById('statusBadge').textContent = '✓ مكتملة';
   }
   
-  const nextBtn = document.getElementById('nextBtn');
-  // إذا وصلنا لآخر محاضرة، نقوم بإخفاء السهم أو تعطيله
+const nextBtn = document.getElementById('nextBtn');
+  const lockHint = document.getElementById('lockHint');
+  const nextIcon = document.getElementById('nextIcon');
+
   if(NEXT_ID > TOTAL_LESSONS) {
       nextBtn.classList.add('locked-next');
       nextBtn.style.opacity = '0.5';
       nextBtn.style.cursor = 'default';
+      nextIcon.textContent = '⛔';
+      lockHint.style.display = 'none';
   } else if (!isNextLocked || isDone) { 
       nextBtn.classList.remove('locked-next'); 
+      nextIcon.textContent = '←';
+      lockHint.style.display = 'none';
+  } else {
+      nextBtn.classList.add('locked-next');
+      nextIcon.textContent = '🔒';
+      lockHint.style.display = 'block';
   }
-}
-
 function markComplete() {
   const progress = getProgress();
   if (progress.completed.includes(CURRENT_LEC_ID)) return;
