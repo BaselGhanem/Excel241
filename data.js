@@ -31,8 +31,14 @@ const FileVaultMap = new Map([
   ['F23', { name: '20-Flash Fill', url: 'https://1drv.ms/...', type: 'Excel Workbook', category: 'Excel', fileSize: '1.5 MB', difficultyLevel: 'Intermediate', tags: ['flash fill', 'data cleaning'] }],
   ['F24', { name: 'If statement and IF combined', url: 'https://1drv.ms/...', type: 'Excel Workbook', category: 'Excel', fileSize: '2.4 MB', difficultyLevel: 'Advanced', tags: ['if statement', 'logic'] }],
   ['F25', { name: '22-Text formulas', url: 'https://1drv.ms/...', type: 'Excel Workbook', category: 'Excel', fileSize: '1.7 MB', difficultyLevel: 'Intermediate', tags: ['text formulas', 'manipulation'] }],
-  ['F26', { name: 'Index Match Magic', url: 'https://1drv.ms/...', type: 'Excel Workbook', category: 'Excel', fileSize: '3.5 MB', difficultyLevel: 'Advanced', tags: ['index match', 'lookup'] }]
-]);
+  ['F26', { name: 'Index Match Magic', url: 'https://1drv.ms/...', type: 'Excel Workbook', category: 'Excel', fileSize: '3.5 MB', difficultyLevel: 'Advanced', tags: ['index match', 'lookup'] }],
+  // تمت إضافة ملفات المحاضرة التاسعة هنا
+  ['F27', { name: '23-IF With And & OR & Not', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQDROO6WqKVIR5xWA_hRRDG2AdXYgdLmxK27lKSWJJMXY6E?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '1.4 MB', difficultyLevel: 'Advanced', tags: ['if', 'and', 'or', 'logic'] }],
+  ['F28', { name: '24-Goal Seek', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQBW-75kiTzSTbY0-UbojrlkAZNG6fiDBaOMQs_JQIcHkL0?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '1.1 MB', difficultyLevel: 'Intermediate', tags: ['goal seek', 'what if analysis'] }],
+  ['F29', { name: '25-Protect your Excel', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQDjVxpKe4bDSavMomTu00woARaIU1e6hlKTw9nil7sCa38?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '900 KB', difficultyLevel: 'Intermediate', tags: ['protection', 'security'] }],
+  ['F30', { name: '26-Quick Analysis tool', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCaaHd_G5szR5gpVf4uvGi4ASF5R_41oFy6kWdX8uFQjYw?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '1.2 MB', difficultyLevel: 'Beginner', tags: ['quick analysis', 'tools'] }],
+['F31', { name: '27-Sumifs countifs', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQARbRzhTdZjTYbo_tkUhQ_0ASMCf3wihpVltptSw9EEJkM?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '2.0 MB', difficultyLevel: 'Advanced', tags: ['sumifs', 'countifs'] }],
+  ['F32', { name: '28-Sumifs countifs assignment', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQARbRzhTdZjTYbo_tkUhQ_0ASMCf3wihpVltptSw9EEJkM?download=1', type: 'Excel Workbook', category: 'Assignments', fileSize: '600 KB', difficultyLevel: 'Advanced', tags: ['assignment', 'practice'] }]]);
 
 const CourseDataMap = new Map([
   [1, { 
@@ -116,13 +122,13 @@ const CourseDataMap = new Map([
     quiz: { id: 'q8', questions: 6 }
   }],
   [9, { 
-    title: 'Power Query والأتمتة', 
-    desc: 'استيراد وتحويل البيانات بقوة لا تصدق وأتمتة المهام.', 
-    story: 'الأداة السحرية والمخفية في Excel! سنتعلم كيف ننظف ونرتب البيانات الفوضوية القادمة من مصادر مختلفة بشكل آلي، وكيف نوفر ساعات من العمل الروتيني.', 
-    objectives: ['استيراد البيانات من مصادر متعددة وتنظيفها', 'دمج ملفات مختلفة في جدول واحد', 'مقدمة سريعة في أتمتة المهام المتكررة'], 
-    videoUrl: '', 
-    _filesCodes: [],
-    duration: 120, difficultyLevel: 'Advanced', progressWeight: 5, prerequisites: [8],
+    title: 'عمالقة الشروط، التحليل الذكي، وحماية حصنك الإكسلاوي!', 
+    desc: 'أسرار الشروط المتداخلة مع AND/OR/NOT، استهداف الأرقام بـ Goal Seek، تأمين الملفات، واحتراف SUMIFS و COUNTIFS.', 
+    story: 'هل أنتم جاهزون لرفع مستوى التحدي؟ في هذه المحاضرة سنتلاعب بالشروط المعقدة بدمج دالة IF مع (AND, OR, NOT) لنحاكي أعقد سيناريوهات الواقع! وسنكتشف سحر "Goal Seek" لنجعل الإكسل يجد الرقم الذي نحلم به. لن ننسى حماية تعبنا، سنتعلم 3 مستويات لتشفير وحماية ملفاتنا لتصبح قلعة حصينة. وسنسلط الضوء على الأداة المظلومة "Quick Analysis" لسرعة خيالية في التحليل. وفي الختام، سنتوج مهاراتنا بعمالقة الإحصاء SUMIFS و COUNTIFS بأمثلة ذكية وتدريجية!', 
+    objectives: ['دمج الشروط المنطقية المتقدمة (IF مع AND, OR, NOT)', 'تحقيق الأهداف الرقمية بضغطة زر عبر Goal Seek وتطبيق 3 مستويات من الحماية', 'استغلال أداة التحليل السريع واحتراف دوال التلخيص المشروطة SUMIFS و COUNTIFS'], 
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQR1-TQBUP3bS5y1vI4r61DdAez-pz9Ix4A-XcpKXuaZsw8?width=1920&height=1080', 
+    _filesCodes: ['F27', 'F28', 'F29', 'F30', 'F31', 'F32'],
+    duration: 120, difficultyLevel: 'Advanced', progressWeight: 15, prerequisites: [8],
     quiz: null
   }],
   [10, { 
@@ -309,10 +315,3 @@ const CourseService = {
     return Array.from(CourseDataMap.keys()).map(id => this.getLesson(id));
   }
 };
-
-// مثال للاستخدام (تأكيد عمل النظام):
-// const currentUser = new UserExperienceLogic("user_101");
-// currentUser.viewLesson(1);
-// currentUser.markAsCompleted(1);
-// console.log("Progress:", LearningEngine.calculateCourseProgress(currentUser.userData.completedLessons) + "%");
-// console.log("Next Lesson Data:", CourseService.getLesson(LearningEngine.getNextLesson(1)));
