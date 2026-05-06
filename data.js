@@ -32,13 +32,23 @@ const FileVaultMap = new Map([
   ['F24', { name: 'If statement and IF combined', url: 'https://1drv.ms/...', type: 'Excel Workbook', category: 'Excel', fileSize: '2.4 MB', difficultyLevel: 'Advanced', tags: ['if statement', 'logic'] }],
   ['F25', { name: '22-Text formulas', url: 'https://1drv.ms/...', type: 'Excel Workbook', category: 'Excel', fileSize: '1.7 MB', difficultyLevel: 'Intermediate', tags: ['text formulas', 'manipulation'] }],
   ['F26', { name: 'Index Match Magic', url: 'https://1drv.ms/...', type: 'Excel Workbook', category: 'Excel', fileSize: '3.5 MB', difficultyLevel: 'Advanced', tags: ['index match', 'lookup'] }],
-  // تمت إضافة ملفات المحاضرة التاسعة هنا
   ['F27', { name: '23-IF With And & OR & Not', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQDROO6WqKVIR5xWA_hRRDG2AdXYgdLmxK27lKSWJJMXY6E?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '1.4 MB', difficultyLevel: 'Advanced', tags: ['if', 'and', 'or', 'logic'] }],
   ['F28', { name: '24-Goal Seek', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQBW-75kiTzSTbY0-UbojrlkAZNG6fiDBaOMQs_JQIcHkL0?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '1.1 MB', difficultyLevel: 'Intermediate', tags: ['goal seek', 'what if analysis'] }],
   ['F29', { name: '25-Protect your Excel', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQDjVxpKe4bDSavMomTu00woARaIU1e6hlKTw9nil7sCa38?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '900 KB', difficultyLevel: 'Intermediate', tags: ['protection', 'security'] }],
   ['F30', { name: '26-Quick Analysis tool', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCaaHd_G5szR5gpVf4uvGi4ASF5R_41oFy6kWdX8uFQjYw?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '1.2 MB', difficultyLevel: 'Beginner', tags: ['quick analysis', 'tools'] }],
-['F31', { name: '27-Sumifs countifs', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQARbRzhTdZjTYbo_tkUhQ_0ASMCf3wihpVltptSw9EEJkM?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '2.0 MB', difficultyLevel: 'Advanced', tags: ['sumifs', 'countifs'] }],
-  ['F32', { name: '28-Sumifs countifs assignment', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQARbRzhTdZjTYbo_tkUhQ_0ASMCf3wihpVltptSw9EEJkM?download=1', type: 'Excel Workbook', category: 'Assignments', fileSize: '600 KB', difficultyLevel: 'Advanced', tags: ['assignment', 'practice'] }]]);
+  ['F31', { name: '27-Sumifs countifs', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQARbRzhTdZjTYbo_tkUhQ_0ASMCf3wihpVltptSw9EEJkM?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '2.0 MB', difficultyLevel: 'Advanced', tags: ['sumifs', 'countifs'] }],
+  ['F32', { name: '28-Sumifs countifs assignment', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQARbRzhTdZjTYbo_tkUhQ_0ASMCf3wihpVltptSw9EEJkM?download=1', type: 'Excel Workbook', category: 'Assignments', fileSize: '600 KB', difficultyLevel: 'Advanced', tags: ['assignment', 'practice'] }],
+  
+  // ملفات وروابط المحاضرات 10 و 11
+  ['F33', { name: '30-Pivot Table & Slicer', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCz4fJNy1PCQ5yG7qYeLzfSAYAa6Zrl84mC949z5foYm4s?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '2.5 MB', difficultyLevel: 'Advanced', tags: ['pivot table', 'slicer', 'magic'] }],
+  ['F34', { name: '31-Slicer in Tables', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQBd2oz_i-5WQKTqwKdZEqrpASBO4vcqMvKHLn4_Ner2c5Y?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '1.3 MB', difficultyLevel: 'Intermediate', tags: ['slicer', 'tables'] }],
+  ['F35', { name: '32-Building A Dashboard', url: 'https://1drv.ms/x/c/a1a27fad04d192e9/IQCiKf8B69IjSqa9NcFL9ZhwAZfwzVFJxE1sFjHrvNRCZ7U?download=1', type: 'Excel Workbook', category: 'Excel', fileSize: '4.2 MB', difficultyLevel: 'Expert', tags: ['dashboard', 'interactive', 'design'] }],
+  ['F36', { name: 'PBI_Layout_1280x720', url: 'https://1drv.ms/i/c/a1a27fad04d192e9/IQCV2CwIPpRkSoXFlUkB02OWAU-Potc47UOX4OQSnLnpjx0?download=1', type: 'Image File', category: 'Design', fileSize: '1.5 MB', difficultyLevel: 'All Levels', tags: ['layout', 'dashboard', 'template'] }],
+  ['F37', { name: 'أيقونات احترافية (Flaticon)', url: 'https://www.flaticon.com/', type: 'External Link', category: 'Tools', fileSize: '-', difficultyLevel: 'All Levels', tags: ['icons', 'design'] }],
+  ['F38', { name: 'تنسيق الألوان (Coolors)', url: 'https://coolors.co/', type: 'External Link', category: 'Tools', fileSize: '-', difficultyLevel: 'All Levels', tags: ['colors', 'palette', 'design'] }],
+  ['F39', { name: 'خطوط جوجل (Google Fonts)', url: 'https://fonts.google.com/', type: 'External Link', category: 'Tools', fileSize: '-', difficultyLevel: 'All Levels', tags: ['fonts', 'typography'] }],
+  ['F40', { name: 'صانع القوالب (LayoutMaker)', url: 'https://baselghanem.github.io/LayoutMaker/', type: 'External Link', category: 'Tools', fileSize: '-', difficultyLevel: 'All Levels', tags: ['layout', 'maker', 'tool'] }]
+]);
 
 const CourseDataMap = new Map([
   [1, { 
@@ -132,13 +142,23 @@ const CourseDataMap = new Map([
     quiz: null
   }],
   [10, { 
-    title: 'مشروع نهائي متكامل', 
-    desc: 'تطبيق شامل على كل ما تعلمته — إنشاء لوحة تحكم (Dashboard).', 
-    story: 'المحطة الأخيرة في رحلتنا! سنقوم بدمج كل المهارات التي تعلمناها في الدورة لبناء لوحة تحكم تفاعلية واحترافية من الصفر وحتى الإخراج النهائي.', 
-    objectives: ['التخطيط الهيكلي للوحة التحكم', 'ربط الدوال والجداول المحورية ببعضها', 'التصميم النهائي والإخراج البصري الاحترافي'], 
-    videoUrl: '', 
-    _filesCodes: [],
-    duration: 180, difficultyLevel: 'Advanced', progressWeight: 5, prerequisites: [1,2,3,4,5,6,7,8,9],
+    title: 'السحر المطلق: Pivot Table & Slicers', 
+    desc: 'وداعاً للمعادلات المعقدة! اكتشف كل تفصيلة صغيرة وكبيرة في عالم الجداول المحورية.', 
+    story: 'هنا تبدأ العظمة! في هذا الملف سنغوص في أعماق الـ Pivot Table لنكتشف الأشياء المجنونة التي يمكننا فعلها به. وداعاً لكتابة المعادلات المعقدة، فمن الآن وصاعداً، كل التلخيصات والتقارير ستنتهي بـ "كبسة زر" واحدة وبدقة متناهية. استعدوا لتغيير قواعد اللعبة في تحليل البيانات!', 
+    objectives: ['إتقان إنشاء الجداول المحورية (Pivot Tables) وفهم كل خصائصها الدقيقة والمخفية', 'تلخيص كميات هائلة من البيانات بضغطة زر ودون الحاجة لأي معادلات', 'استخدام شرائح البيانات (Slicers) لفلترة التقارير بأسلوب ديناميكي واحترافي'], 
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQQbv6Az5mcZRYQyQ1iKeCUeAVkIF1-8z77rvc4EWA269AA?width=1920&height=1080', 
+    _filesCodes: ['F33'],
+    duration: 90, difficultyLevel: 'Advanced', progressWeight: 10, prerequisites: [9],
+    quiz: null
+  }],
+  [11, { 
+    title: 'مشروع الأحلام: بناء Dashboard احترافي من الصفر', 
+    desc: 'التطبيق الشامل لكل ما تعلمناه! ربط الـ Slicers وتصميم لوحة تحكم تفاعلية متكاملة.', 
+    story: 'لقد وصلنا إلى المحطة الأروع والأهم في مسيرتنا! مثلما استخدمنا السلايسر في الـ Pivot، سنتعلم هنا كيف نربطه مع الجداول العادية (Tables). والأهم من ذلك، سنبدأ بتنفيذ مشروعنا النهائي المنتظر: بناء داشبورد (Dashboard) احترافي، تفاعلي، ومذهل بصرياً من الصفر وحتى الإخراج النهائي. استخدموا الروابط المساعدة للون والخط لنصنع معاً تحفة فنية تلخص خبرتكم الكاملة!', 
+    objectives: ['احتراف استخدام السلايسر (Slicers) مع الجداول العادية لفلترة البيانات فوراً', 'التخطيط الهندسي والتصميم البصري لبناء لوحة تحكم متكاملة باستخدام أفضل المواقع المساعدة', 'دمج جميع المهارات السابقة لإخراج تقرير نهائي (Dashboard) يبهر الإدارة'], 
+    videoUrl: 'https://1drv.ms/v/c/a1a27fad04d192e9/IQTs1LW4FswmQrT8wQSXLflIAVhxb_c9FqQ4_e8C01xuXEY?width=1920&height=1080', 
+    _filesCodes: ['F34', 'F35', 'F36', 'F37', 'F38', 'F39', 'F40'],
+    duration: 180, difficultyLevel: 'Expert', progressWeight: 15, prerequisites: [10],
     quiz: null
   }]
 ]);
@@ -187,7 +207,7 @@ class FileService {
     return {
       ...file,
       code: fileCode,
-      allowPreview: file.type.includes('PDF'), // PDFs يمكن معاينتها، Excel تحتاج تنزيل
+      allowPreview: file.type.includes('PDF') || file.type.includes('Link'), // الروابط الخارجية والـ PDF يمكن فتحها مباشرة
       downloadCount: AnalyticsService.getFileDownloads(fileCode)
     };
   }
