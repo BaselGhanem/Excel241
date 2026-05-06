@@ -19,6 +19,46 @@
 .dl-name{font-size:.88rem;font-weight:800;display:block}
 .dl-size{font-size:.75rem;color:var(--text-muted)}
 .dl-arrow{color:var(--teal);font-size:.9rem;font-weight:bold;}
+  /* تنسيقات التحميل للفيديو */
+.video-loader {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  z-index: 1;
+  color: var(--teal);
+  font-weight: 700;
+  gap: 12px;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-teal);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* تنسيق زر التحميل للملفات */
+.dl-action-btn {
+  background: var(--teal);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-fast);
+}
+.dl-file:hover .dl-action-btn {
+  background: var(--teal-dark);
+}
 </style>
 </head>
 <body>
@@ -157,22 +197,25 @@ DATA.objectives.forEach(obj => { objList.innerHTML += `<li>${obj}</li>`; });
 // توليد الواجهة بناءً على البيانات
 if (DATA.videoUrl && DATA.videoUrl.trim() !== '') {
   document.getElementById('availableView').style.display = 'block';
-  document.getElementById('videoTarget').innerHTML = `
-    <iframe src="${DATA.videoUrl}" width="100%" style="aspect-ratio: 16/9;" frameborder="0" allowfullscreen></iframe>
+document.getElementById('videoTarget').innerHTML = `
+    <div id="videoLoader" class="video-loader">
+      <div class="spinner"></div>
+      <span>جاري تحميل الفيديو...</span>
+    </div>
+    <iframe src="${DATA.videoUrl}" width="100%" style="aspect-ratio: 16/9; position: relative; z-index: 2;" frameborder="0" allowfullscreen onload="document.getElementById('videoLoader').style.display='none'"></iframe>
   `;
-
   if (DATA.files && DATA.files.length > 0) {
     let filesHTML = '';
     DATA.files.forEach(file => {
       const icon = file.category === 'PDF' ? '📕' : (file.category === 'Assignments' ? '📝' : '📊');
       filesHTML += `
-      <a class="dl-file" href="${file.url}" target="_blank" title="تنزيل ${file.name}" onclick="AnalyticsService.recordFileDownload('${file.code}')">
+<a class="dl-file" href="${file.url}" target="_blank" title="تنزيل ${file.name}" onclick="AnalyticsService.recordFileDownload('${file.code}')">
         <span class="dl-icon">${icon}</span>
         <div class="dl-info">
           <span class="dl-name">${file.name}</span>
           <span class="dl-size">${file.category} • ${file.fileSize || 'ملف عمل'}</span>
         </div>
-        <span class="dl-arrow">⬇</span>
+        <div class="dl-action-btn">تحميل ⬇</div>
       </a>`;
     });
     document.getElementById('fileTarget').innerHTML = filesHTML;
